@@ -1,0 +1,243 @@
+---
+title: Overview of Service provision in the world
+author:
+  - name: Selma Mallem
+    affil: 
+    orcid: '0000-0002-1099-3857'
+affiliation:
+  - num: 
+    address: School of International Service, American University
+column_numbers: 3
+output: 
+  posterdown::posterdown_html:
+    self_contained: false
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      warning = FALSE,
+                      tidy = FALSE,
+                      message = FALSE,
+                      fig.align = 'center',
+                      out.width = "100%")
+options(knitr.table.format = "html") 
+```
+
+```{r setup, include=FALSE}
+# what should I put here
+
+ 
+library(tidyverse)
+library(rvest)
+library(xml2)
+library(zoo)
+library(ggpubr)
+library(jquerylib)
+library(gtsummary)
+library(scico)
+library(patchwork)
+library(linelist)
+library(rmarkdown)
+library(knitr)
+library(kableExtra)
+library(tinytex)
+library(readxl) 
+library(dplyr)
+library(usmap)
+library(ggplot2)
+library(readr)
+library(ggplot2)
+library(flextable)
+library(janitor)
+library(posterdown)
+library(readxl)
+fs = read_xlsx('fsi-2021.xlsx')
+fs1 = fs %>%
+  rename(C1= `C1: Security Apparatus`,
+         C2= `C2: Factionalized Elites`,
+         C3= `C3: Group Grievance`,
+         E1= `E1: Economy`,
+         E2= `E2: Economic Inequality`,
+         E3= `E3: Human Flight and Brain Drain`,
+         P1= `P1: State Legitimacy`,
+         P2= `P2: Public Services`,
+         P3= `P3: Human Rights`,
+         S1= `S1: Demographic Pressures`,
+         S2= `S2: Refugees and IDPs`,
+         X1= `X1: External Intervention`)
+library(ggplot2)
+library(dplyr)
+
+
+summary(fs1)
+
+ Country=c("Denmark", "United States", "Canada", "France", "Germany", "Yemen", "Angola","Afghanistan", "Albania", "Australia", "Belarus", "Benin", "Botswana", "Brazil", "Bahrain", "China", "Chile", "Cuba", "Italy", "Finland", "Gabon", "Iraq", "jordan", "Lebanon", "Libya", "Mexico", "Morocco", "Myanmar", "Nigeria", "Qatar", "Saudi Arabia", "Serbia", "South Sudan")
+  P2=c(1.4, 2.7, 2.3, 1.8, 2, 9.8, 9.3, 9.8, 4.4, 2.8, 3.3, 8.5, 
+                7.1, 7.4, 3.5, 5.3, 6.6, 4.3, 3.7, 1.6, 6.5, 8.9, 5, 5.8, 7.4,
+                6.9, 5.1, 8.9, 9.3, 2.9, 4.4, 3.9, 10)
+  
+   my_data <- data_frame(Country, P2)
+  
+
+  my_data_desc <- my_data[order(-my_data$P2),]
+  library(ggplot2)
+library(GGally)
+library(ggpubr)
+
+
+
+```
+
+
+# Introduction
+
+The provision of public services is an important social pillar in every country in the world. Some countries have the best public services and some suffer from a great shortage of the latter. Public sector institutions range from effective to ineffective in the 179 countries in this study based on classification on a scale of 10. Therefore, what are the reasons behind governments' limited ability to meet the daily needs of ordinary societies in terms of service delivery?
+I begin by exploring the three main common reasons for lack of effective service delivery in countries with the highest rank ( ex: Yemen, Somalia, Syria, and South Sudan). An overview of the data gives us a hint about three major reasons that will be explored in depth later in the study: Security Apparatus, Economy (and/or economic inequality), and demographic pressure. I expect a strong correlation between these three indicators and service provision (public services).  
+Note: high scores represent weakness in each indicator.
+
+# Data: source and brief description
+
+The Fund for Peace's Fragile States Index `(FSI)` is an important instrument for identifying weaknesses that raise the possibility of state fragility. The information is based on twelve CAST framework indicators that are further divided into sub-indicators. 
+Along with cross-cutting indicators of:
+
+**Social indicators:** The Demographic Pressures Indicator takes into account pressures placed on the state by the population or its surroundings. The demographic factors like pressures from rapid population growth, skewed population distributions like a "youth or age bulge," or sharply different rates of population growth among rival communal groups, acknowledging that these effects can have significant social, economic, and political ramifications.
+
+Our data builds on three major indicators: 
+
+**Cohesion:** The Security Apparatus sub indicator takes into account the security risks to a state, including bombings, attacks, fatalities from combat, rebel movements, mutinies, coups, or terrorism. The Security Apparatus also considers civilian perceptions of domestic security and perceived crime rates.
+
+**Economic:** In general, Economic indicator takes into account aspects of a nation's economic deterioration. The indicator, for instance, examines societal patterns of progressive economic decline by per capita income, Gross National Product, unemployment rates, inflation, productivity, debt, levels of poverty, or business failures.
+
+**Political indicators:**  The Public Services Indicator describes the existence of fundamental government operations that benefit the populace. On the one side, this might entail the delivery of basic services like health, education, water and sanitation, infrastructure for transportation, electricity and power, and internet and connectivity. On the other side, it may also refer to the state's perceived capacity for effective police in defending its citizens from threats like terrorism and violence. 
+
+
+
+
+
+```{r myprettycode, echo=FALSE, collapse=TRUE, fig.cap='2021 perceived shortage in Public Service delivery in 38 countries (from low to high on a scale of 10)', fig.height= 9, out.width="100%"}
+
+
+limit <- max(abs(my_data_desc$P2)) * c(-1, 1)
+
+ggplot(my_data_desc, aes(reorder(Country, P2), P2)) + 
+  geom_col(aes(fill = P2)) +
+  theme_minimal() +
+    labs( x = "Country",  
+          y = "Public Services shortage (P2)") +
+    scale_fill_scico(palette = "cork", limit = limit,
+                    midpoint = median(my_data_desc$P2)) + 
+  coord_flip() + 
+  labs(x = "Country") 
+
+
+
+```
+# Analysis 
+
+**We want to compute the correlation between E1 (Economy) and P2 (Public Services) variables**
+
+The results of a linear regression analysis are shown in graph2. Taken together, various aspects of the Economy explain the variance in perceived service delivery (public Services) in different countries. Inclusion of the Economy  factor/ indicator to our interest is to discern whether, and to what relative extent, aspects of the economy in countries influence perceived weakness or shortage in service delivery. 
+From the plot 2 **(Figure-2)**, the relationship between the Economy and Public Services is linear. The scatter plot shows a straight line pattern, thus, we are dealing with a linear association between the two variables.
+
+
+
+```{r echo=FALSE, collapse=TRUE, fig.cap='2021 perceived Economy impact on Public Services' }
+
+
+ggscatter(fs1, x = "E1", y = "P2", 
+          add = "reg.line", conf.int = F, 
+          cor.coef = TRUE, cor.method = "pearson",
+          xlab = "Economy", ylab = "Service")+
+  geom_point(color = "lightblue") 
+
+
+
+
+```
+
+# correlation test
+
+
+```{r echo=FALSE, collapse=F}
+#correlation test
+
+cor_test <- cor.test(fs1$P2, fs1$E2)
+
+# Create table of results
+results_table <- data.frame(
+  Variable = c("P2", "E2"),
+  Mean = c(mean(fs1$P2), mean(fs1$E2)),
+  SD = c(sd(fs1$P2), sd(fs1$E2)),
+  Correlation = cor_test$estimate,
+  P_Value = cor_test$p.value
+)
+
+# Print table using kable
+
+```
+
+```{r echo=FALSE, collapse=TRUE, fig.cap='2021 perceived Economy impact on Public Services table' }
+kable(results_table, align = "c")    #p-value
+
+
+```
+
+
+``` {r echo=F, collapse = T, include=F}
+
+# Create log-transformed variables
+
+
+fs1 = fs1 %>%
+  mutate(
+    Le2 = log(E2),
+    Ls1 = log(S1),
+    Lc1 = log(C1)
+    )
+
+
+tab_01 = data.frame(
+  Measure = c("Economic inequality", "D. pressures", "S. apparatus"),
+  M_1  = c(mean(fs1$E2), mean(fs1$S1), mean(fs1$C1)),
+  SD_1 = c(sd(fs1$E2), sd(fs1$S1), sd(fs1$C1)),
+  M_2  = c(mean(fs1$Le2), mean(fs1$Ls1), mean(fs1$Lc1)),
+  SD_2 = c(sd(fs1$Le2), sd(fs1$Ls1), sd(fs1$Lc1))
+)
+
+tab_01
+
+```
+
+``` {r echo=F, collapse = T }
+
+kable(
+  tab_01,
+  col.names = c("Measure", "*M*", "*SD*", "*M*", "*SD*"),
+  align = c("l", "c", "c", "c", "c"),
+  digits = 2,
+  caption = "Means and Standard Deviations of Three Measures of Public Services"
+  ) %>%
+  add_header_above(
+    header = c(" " = 1, "Untransformed" = 2, "Log-transformed" = 2)
+    )
+
+```
+
+
+We reject the null hypothesis that (H0: Economy has no effect on level of Public services) at any level of significance level.
+We also reject the null of the two other variables(Security Apparatus (C1)and Demographic Pressures (S1)) have no affect on Service Delivery. 
+
+
+
+# Conclusion
+
+Statistical associations between other variables (such as State Legitimacy (P1) or Human rights (P3) and Public Services are strong, and the relationships are statistically
+significant. These indicator variables explain why Public Services in Countries like Yemen and South Sudan hit the rock bottom and why in countries like the US or Denmark, Service delivery is excellent. Even without running the test, the data is based on ranking, and the ranking is very close in countries like Yemen and South Sudan given the significant weaknesses factors such Economy and security are showing. 
+
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+knitr::write_bib(c('knitr','rmarkdown','posterdown','pagedown'), 'packages.bib')
+```
+
+# References
+https://fragilestatesindex.org/indicators/p2/

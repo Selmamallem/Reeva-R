@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<!--
+Font-awesome icons ie github or twitter
+-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/brands.css" integrity="sha384-n9+6/aSqa9lBidZMRCQHTHKJscPq6NW4pCQBiMmHdUCvPN8ZOg2zJJTkC7WIezWv" crossorigin="anonymous">
+
+<!--
+Google fonts api stuff
+-->
+
+
+
+<title>Overview of Service provision in the world</title>
+
+
+<script src="poster_files/kePrint-0.0.1/kePrint.js"></script>
+<link href="poster_files/lightable-0.0.1/lightable.css" rel="stylesheet" />
+
+
+
+
+<style>
+@page {
+size: 45in 38in;
+margin: 0;
+padding: 0;
+}
+body {
+margin: 0;
+font-size: 45px;
+width: 45in;
+height: 38in;
+padding: 0;
+text-align: justify;
+font-family: Palatino;
+}
+.poster_wrap {
+width: 45in;
+height: 38in;
+padding: 0cm;
+}
+.title_container {
+width: 45in;
+height: calc(38in * 0.15);
+overflow: hidden;
+background-color: #0b4545;
+border: 0 solid #0b4545;
+}
+.logo_left {
+float: left;
+width: 10%;
+height: 100%;
+background-color: #0b4545;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.logo_right {
+float: right;
+width: 10%;
+height: 100%;
+background-color: #0b4545;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.poster_title {
+text-align: center;
+position: relative;
+float: left;
+width: 80%;
+height: 100%;
+color: #FFFFFF;
+top: 50%;
+transform: translateY(-50%);
+-webkit-transform: translateY(-50%);
+}
+#title {
+font-family: Palatino;
+}
+/* unvisited link */
+a:link {
+color: #cc0000;
+}
+.mybreak {
+  break-before: column;
+}
+/* visited link */
+a:visited {
+color: #cc0000;
+}
+
+/* mouse over link */
+a:hover {
+color: #cc0000;
+}
+
+/* selected link */
+a:active {
+color: #cc0000;
+}
+.poster_body {
+-webkit-column-count: 3; /* Chrome, Safari, Opera */
+-moz-column-count: 3; /* Firefox */
+column-count: 3;
+-webkit-column-fill: auto;
+-moz-column-fill: auto;
+column-fill: auto;
+-webkit-column-rule-width: 1mm;
+-moz-column-rule-width: 1mm;
+column-rule-width: 1mm;
+-webkit-column-rule-style: dashed;
+-moz-column-rule-style: dashed;
+column-rule-style: dashed;
+-webkit-column-rule-color: #0b4545;
+-moz-column-rule-color: #0b4545;
+column-rule-color: #0b4545;
+column-gap: 1em;
+padding-left: 0.5em;
+padding-right: 0.5em;
+height: 100%;
+color: #000000
+background-color: #ffffff;
+}
+.poster_title h1 {
+font-size: 75pt;
+margin: 0;
+border: 0;
+font-weight: normal;
+}
+.poster_body_wrap{
+width: calc(45in + 0 + 0);
+height: calc(38in * 0.83);
+padding-top: calc(38in * 0.005);
+padding-bottom: calc(38in * 0.01);
+background-color: #ffffff;
+}
+.poster_title h3 {
+color: #ffffff;
+font-size: 50pt;
+margin: 0;
+border: 0;
+font-weight: normal;
+}
+.poster_title h3 > sup {
+  font-size: 35pt;
+  margin-left: 0.02em;
+}
+.poster_title h5 {
+color: #FFFFFF;
+font-size: 35pt;
+margin: 0;
+border: 0;
+font-weight: normal;
+}
+img {
+margin-top: 2cm;
+margin-bottom: 0;
+}
+.section {
+  padding: 0.2em;
+}
+.poster_body h1 {
+text-align: center;
+color: #FFFFFF;
+font-size: 65pt;
+border: 2mm solid #0b4545;
+background-color: #0b4545;
+border-radius: 4mm 0mm;
+margin-top: 2mm;
+margin-bottom: 2mm;
+font-weight: normal;
+}
+.poster_body h2 {
+color: #000000;
+font-size: 40pt;
+padding-left: 4mm;
+font-weight: normal;
+}
+.span {
+width: 200%;
+}
+/* center align leaflet map,
+from https://stackoverflow.com/questions/52112119/center-leaflet-in-a-rmarkdown-document */
+.html-widget {
+margin: auto;
+position: sticky;
+margin-top: 2cm;
+margin-bottom: 2cm;
+}
+.leaflet.html-widget.html-widget-static-bound.leaflet-container.leaflet-touch.leaflet-fade-anim.leaflet-grab.leaflet-touch-drag.leaflet-touch-zoom {
+position: sticky;
+width: 100%;
+}
+pre.sourceCode.r {
+background-color: #dddddd40;
+border-radius: 4mm;
+padding: 4mm;
+width: 75%;
+/* align-items: center; */
+margin: auto;
+padding-left: 2cm;
+}
+code.sourceCode.r{
+background-color: transparent;
+font-size: 20pt;
+border-radius: 2mm;
+}
+.caption {
+font-size: 25pt;
+}
+.table caption {
+font-size: 25pt;
+padding-bottom: 3mm;
+
+}
+code {
+font-size: 1em;
+font-family: monospace;
+background-color: #00808024;
+color: #0b4545;
+padding: 1.2mm;
+border-radius: 2mm;
+}
+.poster_title code {
+font-size: 1em;
+}
+table {
+font-size: 40px;
+margin: auto;
+border-top: 3px solid #666;
+border-bottom: 3px solid #666;
+}
+table thead th {
+border-bottom: 3px solid #ddd;
+}
+td {
+padding: 8px;
+}
+th {
+padding: 15px;
+}
+caption {
+margin-bottom: 10px;
+}
+.poster_body p {
+margin-right: 4mm;
+margin-left: 4mm;
+margin-top: 6mm;
+margin-bottom: 10mm;
+}
+.poster_body ol {
+margin-right: 4mm;
+margin-left: 4mm;
+}
+#ul {
+margin-right: 4mm;
+margin-left: 4mm;
+}
+.references p {
+font-size: 20pt;
+}
+.orcid img {
+  width: 1em;
+}
+</style>
+</head>
+<body>
+
+
+<div class="poster_wrap">
+<div class="title_container">
+<!-- Left Logo  -->
+<div class="logo_left">
+</div>
+<!-- Poster Title -->
+<div class= "poster_title">
+<h1 id="title">Overview of Service provision in the world</h1>
+<h3 id="author">Selma Mallem<sup>, <a class="orcid" href="https://orcid.org/0000-0002-1099-3857"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a></sup></h3><br>
+<h5 id="affiliation"><sup></sup> School of International Service, American University</h5>
+</div>
+<!-- Right Logo  -->
+<div class="logo_right">
+</div>
+</div>
+
+<div class='poster_body_wrap'>
+<div class='poster_body'>
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>The provision of public services is an important social pillar in every country in the world. Some countries have the best public services and some suffer from a great shortage of the latter. Public sector institutions range from effective to ineffective in the 179 countries in this study based on classification on a scale of 10. Therefore, what are the reasons behind governments’ limited ability to meet the daily needs of ordinary societies in terms of service delivery?
+I begin by exploring the three main common reasons for lack of effective service delivery in countries with the highest rank ( ex: Yemen, Somalia, Syria, and South Sudan). An overview of the data gives us a hint about three major reasons that will be explored in depth later in the study: Security Apparatus, Economy (and/or economic inequality), and demographic pressure. I expect a strong correlation between these three indicators and service provision (public services).<br />
+Note: high scores represent weakness in each indicator.</p>
+</div>
+<div id="data-source-and-brief-description" class="section level1">
+<h1>Data: source and brief description</h1>
+<p>The Fund for Peace’s Fragile States Index <code>(FSI)</code> is an important instrument for identifying weaknesses that raise the possibility of state fragility. The information is based on twelve CAST framework indicators that are further divided into sub-indicators.
+Along with cross-cutting indicators of:</p>
+<p><strong>Social indicators:</strong> The Demographic Pressures Indicator takes into account pressures placed on the state by the population or its surroundings. The demographic factors like pressures from rapid population growth, skewed population distributions like a “youth or age bulge,” or sharply different rates of population growth among rival communal groups, acknowledging that these effects can have significant social, economic, and political ramifications.</p>
+<p>Our data builds on three major indicators:</p>
+<p><strong>Cohesion:</strong> The Security Apparatus sub indicator takes into account the security risks to a state, including bombings, attacks, fatalities from combat, rebel movements, mutinies, coups, or terrorism. The Security Apparatus also considers civilian perceptions of domestic security and perceived crime rates.</p>
+<p><strong>Economic:</strong> In general, Economic indicator takes into account aspects of a nation’s economic deterioration. The indicator, for instance, examines societal patterns of progressive economic decline by per capita income, Gross National Product, unemployment rates, inflation, productivity, debt, levels of poverty, or business failures.</p>
+<p><strong>Political indicators:</strong> The Public Services Indicator describes the existence of fundamental government operations that benefit the populace. On the one side, this might entail the delivery of basic services like health, education, water and sanitation, infrastructure for transportation, electricity and power, and internet and connectivity. On the other side, it may also refer to the state’s perceived capacity for effective police in defending its citizens from threats like terrorism and violence.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:myprettycode"></span>
+<img src="poster_files/figure-html/myprettycode-1.png" alt="2021 perceived shortage in Public Service delivery in 38 countries (from low to high on a scale of 10)" width="100%" />
+<p class="caption">
+Figure 1: 2021 perceived shortage in Public Service delivery in 38 countries (from low to high on a scale of 10)
+</p>
+</div>
+</div>
+<div id="analysis" class="section level1">
+<h1>Analysis</h1>
+<p><strong>We want to compute the correlation between E1 (Economy) and P2 (Public Services) variables</strong></p>
+<p>The results of a linear regression analysis are shown in graph2. Taken together, various aspects of the Economy explain the variance in perceived service delivery (public Services) in different countries. Inclusion of the Economy factor/ indicator to our interest is to discern whether, and to what relative extent, aspects of the economy in countries influence perceived weakness or shortage in service delivery.
+From the plot 2 <strong>(Figure-2)</strong>, the relationship between the Economy and Public Services is linear. The scatter plot shows a straight line pattern, thus, we are dealing with a linear association between the two variables.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-2"></span>
+<img src="poster_files/figure-html/unnamed-chunk-2-1.png" alt="2021 perceived Economy impact on Public Services" width="100%" />
+<p class="caption">
+Figure 2: 2021 perceived Economy impact on Public Services
+</p>
+</div>
+</div>
+<div id="correlation-test" class="section level1">
+<h1>correlation test</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:center;">
+Variable
+</th>
+<th style="text-align:center;">
+Mean
+</th>
+<th style="text-align:center;">
+SD
+</th>
+<th style="text-align:center;">
+Correlation
+</th>
+<th style="text-align:center;">
+P_Value
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;">
+P2
+</td>
+<td style="text-align:center;">
+5.722346
+</td>
+<td style="text-align:center;">
+2.502325
+</td>
+<td style="text-align:center;">
+0.9001696
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:center;">
+E2
+</td>
+<td style="text-align:center;">
+5.303352
+</td>
+<td style="text-align:center;">
+2.167479
+</td>
+<td style="text-align:center;">
+0.9001696
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:unnamed-chunk-6">Table 1: </span>Means and Standard Deviations of Three Measures of Public Services
+</caption>
+<thead>
+<tr>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Untransformed
+</div>
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="2">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Log-transformed
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;">
+Measure
+</th>
+<th style="text-align:center;">
+<em>M</em>
+</th>
+<th style="text-align:center;">
+<em>SD</em>
+</th>
+<th style="text-align:center;">
+<em>M</em>
+</th>
+<th style="text-align:center;">
+<em>SD</em>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Economic inequality
+</td>
+<td style="text-align:center;">
+5.30
+</td>
+<td style="text-align:center;">
+2.17
+</td>
+<td style="text-align:center;">
+1.56
+</td>
+<td style="text-align:center;">
+0.50
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+D. pressures
+</td>
+<td style="text-align:center;">
+5.90
+</td>
+<td style="text-align:center;">
+2.23
+</td>
+<td style="text-align:center;">
+1.69
+</td>
+<td style="text-align:center;">
+0.44
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+S. apparatus
+</td>
+<td style="text-align:center;">
+5.32
+</td>
+<td style="text-align:center;">
+2.25
+</td>
+<td style="text-align:center;">
+1.54
+</td>
+<td style="text-align:center;">
+0.58
+</td>
+</tr>
+</tbody>
+</table>
+<p>We reject the null hypothesis that (H0: Economy has no effect on level of Public services) at any level of significance level.
+We also reject the null of the two other variables(Security Apparatus (C1)and Demographic Pressures (S1)) have no affect on Service Delivery.</p>
+</div>
+<div id="conclusion" class="section level1">
+<h1>Conclusion</h1>
+<p>Statistical associations between other variables (such as State Legitimacy (P1) or Human rights (P3) and Public Services are strong, and the relationships are statistically
+significant. These indicator variables explain why Public Services in Countries like Yemen and South Sudan hit the rock bottom and why in countries like the US or Denmark, Service delivery is excellent. Even without running the test, the data is based on ranking, and the ranking is very close in countries like Yemen and South Sudan given the significant weaknesses factors such Economy and security are showing.</p>
+</div>
+<div id="references" class="section level1">
+<h1>References</h1>
+<p><a href="https://fragilestatesindex.org/indicators/p2/" class="uri">https://fragilestatesindex.org/indicators/p2/</a></p>
+</div>
+</div>
+</div>
+
+</div>
+
+
+
+</body>
+</html>
