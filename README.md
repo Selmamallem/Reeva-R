@@ -32,7 +32,7 @@ Overall, this report provides a comprehensive analysis of the data collected and
 
 ## Favourite Code Chunk
 
-I write the following code to order to show the 2021 perceived shortage in Public Service delivery in 38 countries (from low to high on a scale of 10). 
+I write the following code in order to show the 2021 perceived shortage in Public Service delivery in 38 countries (from low to high on a scale of 10). 
 Please make sure to follow all the steps on the `https://github.com/Selmamallem/Reeva-R/blob/main/poster.Rmd` **Poster.Rmd file** to be able to make the ggplot.  
 ```python
 limit <- max(abs(my_data_desc$P2)) * c(-1, 1)
